@@ -40,3 +40,16 @@ Object.defineProperty(newObject3, "firstName", {
 	configurable: true //Control if properties of object can be changed (added or deleted)
 });
 console.log(newObject3);
+
+var obj = {};
+var objValue = '';
+Object.defineProperty(obj, 'name', {
+	set: function(value) {
+		if (Object.prototype.toString.call(value) === "[object String]") {//Only accept string value for this property
+			objValue = value;
+		} else {
+			objValue = '';
+		}
+	},
+	get: function() {return objValue;}
+});
