@@ -10,17 +10,19 @@ var Logger = (function() {
     };
 
     var init = function() {
-        if (instance === null) {
-            instance =  {
-                log: doLog
-            };
-        }
-
-        return instance;
+        return {
+            log: doLog
+        };
     };
 
     return {
-        getInstance: init
+        getInstance: function() {
+            if (instance === null) {
+                instance = init();
+            }
+
+            return instance;
+        }
     };
 })();
 
